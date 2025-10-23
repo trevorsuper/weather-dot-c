@@ -11,6 +11,7 @@ target = weather
 debug: $(source)
 	$(cc) $(debug_flags) -c $(source)
 	$(cc) -o $(target) *.o
+	./$(target)
 san: $(source)
 	$(cc) $(debug_sanitizer_flags) -c $(source)
 	$(cc) -o $(target) *.o -fsanitize=undefined,address
