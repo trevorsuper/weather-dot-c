@@ -2,5 +2,5 @@
 
 Dependencies
 ```
-sudo apt install libcurl4-openssl-dev
+libcurl4-openssl-dev
 ```
