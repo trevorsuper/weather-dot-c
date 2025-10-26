@@ -19,7 +19,7 @@ optimized_flags = -Wall -Wextra -Werror -O3 -march=native -MMD -MP -std=c17
 target = weather
 debug_target = $(target)_dbg
 san_target = $(target)_san
-opt_target = $(target)_opt
+opt_target = $(target)
 
 debug: $(debug_target)
 	./$<
