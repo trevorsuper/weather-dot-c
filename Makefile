@@ -16,9 +16,10 @@ opt_dependencies   = $(patsubst $(src_dir)/%.c,$(opt_objects_dir)/%.o,$(src))
 debug_flags = -Wall -Wextra -Werror -O0 -g -MMD -MP -std=c17
 debug_sanitizer_flags = -Wall -Wextra -Werror -O0 -fsanitize=undefined,address -march=native -MMD -MP -std=c17
 optimized_flags = -Wall -Wextra -Werror -O3 -march=native -MMD -MP -std=c17
-debug_target = weather_dbg
-san_target = weather_san
-opt_target = weather_opt
+target = weather
+debug_target = $(target)_dbg
+san_target = $(target)_san
+opt_target = $(target)_opt
 
 debug: $(debug_target)
 	./$<
