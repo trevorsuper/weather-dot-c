@@ -25,33 +25,33 @@ debug: $(debug_target)
 	./$<
 
 $(debug_target): $(debug_objects)
-	$(cc) -lcurl -o $@ $^
+	$(cc) -o $@ $^ -lcurl
 
 $(debug_objects_dir)/%.o: $(src_dir)/%.c
 	@mkdir -p $(debug_objects_dir)
-	$(cc) $(debug_flags) -c $< -o $@
+	$(cc) $(debug_flags) -c -lcurl $< -o $@
 	-include $(debug_dependencies)
 
 san: $(san_target)
 	./$<
 
 $(san_target): $(san_objects)
-	$(cc) -lcurl -o $@ $^ -fsanitize=undefined,address
+	$(cc) -o $@ $^ -lcurl -fsanitize=undefined,address
 
 $(san_objects_dir)/%.o: $(src_dir)/%.c
 	@mkdir -p $(san_objects_dir)
-	$(cc) $(debug_sanitizer_flags) -c $< -o $@
+	$(cc) $(debug_sanitizer_flags) -c -lcurl $< -o $@
 	-include $(san_dependencies)
 
 opt: $(opt_target)
 	./$<
 
 $(opt_target): $(opt_objects)
-	$(cc) -lcurl -o $@ $^
+	$(cc) -o $@ $^ -lcurl
 
 $(opt_objects_dir)/%.o: $(src_dir)/%.c
 	@mkdir -p $(opt_objects_dir)
-	$(cc) $(optimized_flags) -c $< -o $@
+	$(cc) $(optimized_flags) -c -lcurl $< -o $@
 	-include $(opt_dependencies)
 
 clean:
