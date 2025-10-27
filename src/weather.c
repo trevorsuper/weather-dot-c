@@ -1,9 +1,9 @@
-//#include <curl/curl.h>
+#include <curl/curl.h>
 #include <stdio.h>
 
 int main(){
 //int main(int argc, char *argv[]){
-	enum weather_code = {
+	enum weather_code {
 		clear_sky = 0, mainly_clear = 1, partly_cloudy = 2, overcast = 3,
 		fog = 45, depositing_rime_fog = 48, light_drizzle = 51, 
 		moderate_drizzle = 53, dense_drizzle = 55, light_freezing_drizzle = 56,
@@ -14,6 +14,6 @@ int main(){
 		violent_rain_showers = 82, slight_snow_showers = 85, 
 		heavy_snow_showers = 86, thunderstorm = 95, 
 		thunderstorm_with_slight_hail = 96, thunderstorm_with_heavy_hail = 99
-	};	
+	};
     return 0;
 }

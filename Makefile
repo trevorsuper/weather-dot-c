@@ -25,7 +25,7 @@ debug: $(debug_target)
 	./$<
 
 $(debug_target): $(debug_objects)
-	$(cc) -o $@ $^
+	$(cc) -lcurl -o $@ $^
 
 $(debug_objects_dir)/%.o: $(src_dir)/%.c
 	@mkdir -p $(debug_objects_dir)
@@ -36,7 +36,7 @@ san: $(san_target)
 	./$<
 
 $(san_target): $(san_objects)
-	$(cc) -o $@ $^ -fsanitize=undefined,address
+	$(cc) -lcurl -o $@ $^ -fsanitize=undefined,address
 
 $(san_objects_dir)/%.o: $(src_dir)/%.c
 	@mkdir -p $(san_objects_dir)
@@ -47,7 +47,7 @@ opt: $(opt_target)
 	./$<
 
 $(opt_target): $(opt_objects)
-	$(cc) -o $@ $^
+	$(cc) -lcurl -o $@ $^
 
 $(opt_objects_dir)/%.o: $(src_dir)/%.c
 	@mkdir -p $(opt_objects_dir)
