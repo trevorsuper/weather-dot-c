@@ -36,7 +36,6 @@ san: $(san_target)
 	./$<
 
 $(san_target): $(san_objects)
-	@mkdir -p $(san_objects_dir)
 	$(cc) -o $@ $^ -fsanitize=undefined,address
 
 $(san_objects_dir)/%.o: $(src_dir)/%.c
@@ -48,7 +47,6 @@ opt: $(opt_target)
 	./$<
 
 $(opt_target): $(opt_objects)
-	@mkdir -p $(opt_objects_dir)
 	$(cc) -o $@ $^
 
 $(opt_objects_dir)/%.o: $(src_dir)/%.c
